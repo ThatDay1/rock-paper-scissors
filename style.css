@@ -31,11 +31,31 @@ body {
     column-gap: 7rem;
 }
 
+.container.start.user-images {
+    animation: userShake 0.5s ease infinite;
+}
+
+@keyframes userShake {
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+.container.start.cpu-images {
+    animation: cpuShake 0.5s ease infinite;
+}
+
+@keyframes cpuShake {
+    50% {
+        transform: translateY(10px);
+    }
+}
+
 .result-images img {
     width: 250px;
 }
 
-.user-image {
+.user-images {
     transform: rotate(180deg);
 }
 
@@ -61,12 +81,16 @@ body {
     cursor: pointer;
 }
 
-option-image img {
+.option-image img {
     pointer-events: none;
     width: 80px;
 }
 
 .option-image:hover {
+    opacity: 1;
+}
+
+.option-image.active {
     opacity: 1;
 }
 
