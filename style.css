@@ -8,20 +8,21 @@
 :root {
     --bg-color: #f6f7fb;
     --white: #fff;
-    --img-text-color: #023047;
+    --p-color: #023047;
 }
 
 body {
     min-height: 100vh;
+    flex-direction: column;
     justify-content: center;
     background-color: var(--bg-color);
 }
 
-body, .result-images, .option-images {
+body, .result-images, .option-images{
     display: flex;
 }
 
-body, .option-images {
+body, .option-images{
     align-items: center;
 }
 
@@ -36,7 +37,7 @@ body, .option-images {
     column-gap: 7rem;
 }
 
-.container.start.user-images {
+.container.start .user-images{
     animation: userShake 0.5s ease infinite;
 }
 
@@ -46,7 +47,7 @@ body, .option-images {
     }
 }
 
-.container.start.cpu-images {
+.container.start .cpu-images {
     animation: cpuShake 0.5s ease infinite;
 }
 
@@ -60,15 +61,18 @@ body, .option-images {
     width: 250px;
 }
 
-.user-images {
-    transform: rotate(180deg);
+.user-images img {
+    transform: rotate(-180deg);
 }
 
 .result {
     font-size: 2rem;
     margin-top: 1.5rem;
     font-weight: 700;
-    color: var(--img-text-color);
+    color: var(--p-color);
+}
+
+.result, .option-image p{
     text-align: center;
 }
 
@@ -79,29 +83,24 @@ body, .option-images {
 
 .option-image {
     opacity: 0.5;
-    transition: opacity 0.3s ease;
+    transition: 0.3s ease;
     cursor: pointer;
+}
+
+.option-image, .option-image img{
+    width: 80px;
 }
 
 .option-image img {
     pointer-events: none;
 }
 
-.option-image, .option-image img {
-    width: 80px;
-}
-
-.option-image:hover {
+.option-image:Hover, .option-image.active{
     opacity: 1;
 }
 
-.option-image:active {
-    opacity: 0.8;
-}
-
 .option-image p {
-    text-align: center;
     font-size: 1.1rem;
-    color: var(--img-text-color);
+    color: var(--p-color);
     font-weight: 500;
 }

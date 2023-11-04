@@ -7,29 +7,33 @@ const container = document.querySelector(".container"),
 optionImages.forEach((image, index) => {
     image.addEventListener("click", e => {
         image.classList.add("active");
+        //console.log(e.target.value);
 
-        optionImages.forEach((image2, index2) => {
+        optionImages.forEach((img2, index2) => {
+            //console.log(index, index2);
             if (index !== index2) {
-                image2.classList.remove("active");
+                img2.classList.remove("active");
             }
         })
 
         container.classList.add("start");
 
-        let time = setTimeout(() => {
+        let time = setTimeout (() => {
             container.classList.remove("start");
             let imageSrc = e.target.querySelector("img").src;
-
+            //console.log(imageSrc);
             userResult.src = imageSrc;
     
             let randomNumber = Math.floor(Math.random() * 3);
-            
-            let cpuImages = ["/img/rock.jpg", "/img/paper.jpg", "/img/scissors.jpg"];
+            //console.log(randomNumber);
     
+            let cpuImages = ["/img/rock.jpg", "/img/paper.jpg", "/img/scissors.jpg"];
             cpuResult.src = cpuImages[randomNumber];
     
             let cpuValue = ["R", "P", "S"][randomNumber];
             let userValue = ["R", "P", "S"][index];
+    
+            //console.log(UserValue, cpuValue);
     
             let outcomes = {
                 RR : "Draw",
@@ -43,8 +47,9 @@ optionImages.forEach((image, index) => {
                 SP : "User"
             };
             let outComeValue = outcomes[userValue + cpuValue];
+            //console.log(outcomeValue);
     
-            result.textContent = userValue === cpuValue ? "Draw" : `${outComeValue} Wins`;
+            result.textContent = userValue === cpuValue ? "Draw" : `${outComeValue} Won`;
         }, 700)
     })
 })
